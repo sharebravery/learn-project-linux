@@ -25,8 +25,8 @@ int main()
     // 初始化服务器地址结构
     memset(&server_addr, 0, sizeof(server_addr));
     server_addr.sin_family = AF_INET;
-    server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
-    server_addr.sin_port = htons(PORT);
+    server_addr.sin_addr.s_addr = htonl(INADDR_ANY); // 将服务器的 IP 地址设置为本地主机的 IP 地址，使用 INADDR_ANY 表示任意可用的 IP 地址
+    server_addr.sin_port = htons(PORT);              // 使用 htons 函数将端口号从主机字节序转换为网络字节序
 
     // 绑定套接字
     if (bind(server_sock, (struct sockaddr *)&server_addr, sizeof(server_addr)) == -1)
