@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
         if (strcmp(buf, "quit\n") == 0)
             break;
 
-        bytes_sent = send(c_fd, buf, sizeof(buf), 0);
+        bytes_sent = send(c_fd, buf, strlen(buf), 0); // 发送实际接收到的字节数
         if (bytes_sent == -1)
         {
             perror("Send error");
